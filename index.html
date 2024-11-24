@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books JSON Example</title>
+</head>
+<body>
+    <h1>Book Details</h1>
+    <p><strong>Title of the first book:</strong> <span id="first-book-title"></span></p>
+    <p><strong>Author of the second book:</strong> <span id="second-book-author"></span></p>
+    <p><strong>Genres of all books:</strong> <span id="all-genres"></span></p>
+    <script>
+        //  JSON data
+        const bookData = {
+            "Books": [
+                {
+                    "title": "The Great Gatsby",
+                    "author": "F. Scott Fitzgerald",
+                    "publicationYear": 1925,
+                    "genres": ["Fiction", "Classics"]
+                },
+                {
+                    "title": "To Kill a Mockingbird",
+                    "author": "Harper Lee",
+                    "publicationYear": 1960,
+                    "genres": ["Fiction", "Coming-of-Age"]
+                }
+            ]
+        };
+
+        // Updating the DOM
+        document.getElementById("first-book-title").textContent = bookData.Books[0].title;
+        document.getElementById("second-book-author").textContent = bookData.Books[1].author;
+        document.getElementById("all-genres").textContent = bookData.Books.map(book => book.genres.join(", ")).join(", ");
+    </script>
+</body>
