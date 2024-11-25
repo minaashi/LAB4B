@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,12 +8,8 @@
     <title>Books JSON Example</title>
 </head>
 <body>
-    <h1>Book Details</h1>
-    <p><strong>Title of the first book:</strong> <span id="first-book-title"></span></p>
-    <p><strong>Author of the second book:</strong> <span id="second-book-author"></span></p>
-    <p><strong>Genres of all books:</strong> <span id="all-genres"></span></p>
     <script>
-        //  JSON data
+        // Simulated JSON data for books
         const bookData = {
             "Books": [
                 {
@@ -30,9 +27,16 @@
             ]
         };
 
-        // Updating the DOM
-        document.getElementById("first-book-title").textContent = bookData.Books[0].title;
-        document.getElementById("second-book-author").textContent = bookData.Books[1].author;
-        document.getElementById("all-genres").textContent = bookData.Books.map(book => book.genres.join(", ")).join(", ");
+        // Display the title of the first book
+        console.log("Title of the first book:", bookData.Books[0].title);
+
+        // Display the author of the second book
+        console.log("Author of the second book:", bookData.Books[1].author);
+
+        // Loop through the books and display the genres
+        bookData.Books.forEach(book => {
+            console.log("Genres for", book.title, ":", book.genres.join(", "));
+        });
     </script>
 </body>
+</html>
